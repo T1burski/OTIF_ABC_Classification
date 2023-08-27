@@ -12,5 +12,20 @@ So, we receive this challenge: create a way to classify our customers and produc
 ## The Data
 For practical reasons, the data used was collected from Kaggle (https://www.kaggle.com/datasets/ashishyadav1993/atliq-marts-challenge). For the current challenge, we will be using these .csv files as if they were being accessed directly in the company's system (for example, if the company had a data warehouse or datalake) and we were building the ETL process through the use of python scripts.
 
-Now, lets return to the understanding of the data avaliable. There are three datasets that can be accessed through the company's system: a fact table that brings the history of Orders delivered, and two other dimensional tables, one that brings information, such as name and type of product, for each product code and one that brings the names and locations for each customer code.
-The Orders table can be joined with the Products table by using the product code as a key and joined with the Customers table by using the customer code as a key.
+Now, lets return to the understanding of the data avaliable. There are three datasets that can be accessed through the company's system: a fact table that brings the history of Orders delivered, and two other dimensional tables, one that brings information, such as name and type of product, for each product code and one that brings the names and locations for each customer code. They will be consumed and converted to pandas DataFrame for data manipulation. The Orders table can be joined with the Products table by using the product code as a key and joined with the Customers table by using the customer code as a key.
+
+In the Orders table we have the main information needed to build the OTIF KPI and the ABC Classifications, such as delivered and ordered quantities of the products and delivery and order dates for each Order ID.
+
+## Data Preparation and Modeling
+The code bulit is attached to this repository, but we will comment its main steps. Also, here we are commenting the logic behind the ABC classification and the OTIF calculation. The ABC classifiation segments ou products, or customers also in this case, in 3 groups:
+
+A - A small part of our products or customers (usually 20%) that drive the majority of sales (lets say 80% of the volume sold);
+B - A intermediary part of our products or customers that drive an intermediary amount of sales (lets say 15% of the volume sold);
+C - A large part (the majority) of our products or customers that drive the smallest amount of sales (lets say 5% of the volume sold).
+
+This calculation was inputed in the folowing function:
+
+![image](https://github.com/T1burski/OTIF_ABC_Classification/assets/100734219/58226de2-49ea-494a-b526-751e779ac08f)
+
+
+So, with this logic, we can see that we can concentrate the most of our efforts in controlling and improving the service level of a small group which has the most impact: group A. This makes management easier the orients better improvements actions in the business.
