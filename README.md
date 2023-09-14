@@ -19,9 +19,13 @@ In the Orders table we have the main information needed to build the OTIF KPI an
 ## Data Preparation and Modeling
 The code bulit is attached to this repository, but we will comment its main steps. Also, here we are commenting the logic behind the ABC classification and the OTIF calculation. The ABC classifiation segments ou products, or customers also in this case, in 3 groups:
 
+
 A - A small part of our products or customers (usually 20%) that drive the majority of sales (lets say 80% of the volume sold);
-B - A intermediary part of our products or customers that drive an intermediary amount of sales (lets say 15% of the volume sold);
+
+B - An intermediary part of our products or customers that drive an intermediary amount of sales (lets say 15% of the volume sold);
+
 C - A large part (the majority) of our products or customers that drive the smallest amount of sales (lets say 5% of the volume sold).
+
 
 This calculation was inputed in the folowing function:
 
