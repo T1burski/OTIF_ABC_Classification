@@ -28,4 +28,23 @@ This calculation was inputed in the folowing function:
 ![image](https://github.com/T1burski/OTIF_ABC_Classification/assets/100734219/58226de2-49ea-494a-b526-751e779ac08f)
 
 
-So, with this logic, we can see that we can concentrate the most of our efforts in controlling and improving the service level of a small group which has the most impact: group A. This makes management easier the orients better improvements actions in the business.
+So, with this logic, we can see that we can concentrate the most of our efforts in controlling and improving the service level of a small group which has the most impact: group A. This makes management easier the orients better improvement actions in the business.
+
+At the same time, the OTIF KPI, which stands for On-Time In-Full, was calculated firstly by defining a column that compares the quantity delivered with the quantity ordered of the product (if Qty Delivered >= Qty Ordered, then In-Full) and also a column that compares the delivery date with the requested date of delivery (if Delivery Date >= Requested Date, then On-Time).
+
+So, with these columns calculated, we can define e Measure inside Power BI that adjusts the results according to the context and filters applied efficiently. The equations to reach the desired results are as follows:
+
+### In-Full = [Number of Orders In-Full] / [Total Number of Orders]
+
+### On-Time = [Number of Orders On-Time] / [Total Number of Orders]
+
+So,
+
+### OTIF = [On-Time] * [In-Full]
+
+After the data processing in Python, four datasets were produced and imported into Power BI: orders_final (fact table tht brings the orders history), dim_products (dimension table that brings information about the products, joined with the fact table using the product ID), dim_customers (dimension table that brings information about the customers, joined with the fact table using the customer ID), abc_cust (dimension table that brings the customers' ABC classifications, joined with the fact table using the customer ID) and abc_prod (dimension table that brings the products' ABC classifications, joined with the fact table using the product ID). In Power BI, they were conected using star schema logic, which can be viewed in the image below:
+
+![image](https://github.com/T1burski/OTIF_ABC_Classification/assets/100734219/05ea9a40-d6b5-40ca-8167-62fbf5963a2d)
+
+
+
