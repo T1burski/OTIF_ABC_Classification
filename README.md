@@ -50,5 +50,12 @@ After the data processing in Python, four datasets were produced and imported in
 
 ![image](https://github.com/T1burski/OTIF_ABC_Classification/assets/100734219/05ea9a40-d6b5-40ca-8167-62fbf5963a2d)
 
+## The Final Built Solution
+Finally, the analysis built was delivered in a Power BI Report. In this example we are working with a static .csv dataset, but in a real scenario, the whole sricpt and power BI could be easily connected to a datalake, datawarehouse or other DB structures that were submitted to data refreshes and updates daily, providing an auotmated solution and report.
+The built report can be found in the following link:
+
+https://app.powerbi.com/view?r=eyJrIjoiN2Q0NjJlYzYtYzI5OS00YmYzLWEzNmQtNjU5Y2Y2NjZmMjk2IiwidCI6ImUwODQ1MjFlLTUyODctNGFhMy04ZDEyLTRkY2EzNDY3NjIyZiJ9
+
+
 
 
