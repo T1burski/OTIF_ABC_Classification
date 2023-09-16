@@ -46,16 +46,20 @@ So,
 
 ### OTIF = [On-Time] * [In-Full]
 
-After the data processing in Python, four datasets were produced and imported into Power BI: orders_final (fact table tht brings the orders history), dim_products (dimension table that brings information about the products, joined with the fact table using the product ID), dim_customers (dimension table that brings information about the customers, joined with the fact table using the customer ID), abc_cust (dimension table that brings the customers' ABC classifications, joined with the fact table using the customer ID) and abc_prod (dimension table that brings the products' ABC classifications, joined with the fact table using the product ID). In Power BI, they were conected using star schema logic, which can be viewed in the image below:
+After the data processing in Python, four datasets were produced and imported into Power BI: orders_final (fact table tht brings the orders history), dim_products (dimension table that brings information about the products, joined with the fact table using the product ID), dim_customers (dimension table that brings information about the customers, joined with the fact table using the customer ID), abc_cust (dimension table that brings the customers' ABC classifications, joined with the fact table using the customer ID) and abc_prod (dimension table that brings the products' ABC classifications, joined with the fact table using the product ID). In Power BI, they were connected using star schema logic, which can be viewed in the image below:
 
 ![image](https://github.com/T1burski/OTIF_ABC_Classification/assets/100734219/05ea9a40-d6b5-40ca-8167-62fbf5963a2d)
 
 ## The Final Built Solution
-Finally, the analysis built was delivered in a Power BI Report. In this example we are working with a static .csv dataset, but in a real scenario, the whole sricpt and power BI could be easily connected to a datalake, datawarehouse or other DB structures that were submitted to data refreshes and updates daily, providing an automated solution and report.
+Finally, the analysis built was delivered in a Power BI Report. In this example we are working with a static .csv dataset, but in a real scenario, the whole sricpt and Power BI could be easily connected to a datalake, datawarehouse or other DB structures that were submitted to data refreshes and updates daily, providing an automated solution and report.
 The built report can be found in the following link:
 
 https://app.powerbi.com/view?r=eyJrIjoiN2Q0NjJlYzYtYzI5OS00YmYzLWEzNmQtNjU5Y2Y2NjZmMjk2IiwidCI6ImUwODQ1MjFlLTUyODctNGFhMy04ZDEyLTRkY2EzNDY3NjIyZiJ9
 
+The OTIF KPI was analyzed across ABC classifications on products and customers, with the addition of another analysis of the KPI across every combination of ABC customer and ABC product, in order to try answering questions like "are we performing well with A products sold to C customers?" These analysis help us identify in which segment (classification) of products and customers we are performing better.
 
+As a starting point, the company has a goal to have an OTIF of at least 50%. So, using this threshold, we formated the whole report to show, visually, if we are below this value through the use of coloring (red means below).
 
+The Avg Ticket measure means the average quantity sold per order in a certain context (product or customer).
 
+In the end, one of the many interesting insights we can have from the results of the report is the following: The distribution of the OTIF KPI across the classifications of Products is not following the best behavior. In practice, the ideal situation would be similar to the one occuring with the customers: A having a higher OTIF, B an intermediary OTIF and C a lower OTIF. With the products, for example, we can see (using all the data) that B produtcs have a higher OTIF, which means B products are having better service levels compared to A products, which should be inverted, since A products (products that drive 80% of the deliveries) should have a higher service level than B products, and B products a higher service level than C products. Having these proportions not followed could represent loss of sales of important products (A) in the near future.
